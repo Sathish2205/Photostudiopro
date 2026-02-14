@@ -61,7 +61,7 @@ export default function LoginPage() {
                             <input
                                 type="email"
                                 className="form-input"
-                                placeholder="admin@studio.com"
+                                placeholder="Enter Admin Email"
                                 value={form.email}
                                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                                 required
