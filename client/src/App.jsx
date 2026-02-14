@@ -10,6 +10,7 @@ import ClientsPage from './pages/ClientsPage';
 import FinancePage from './pages/FinancePage';
 import ReportsPage from './pages/ReportsPage';
 import WorkflowPage from './pages/WorkflowPage';
+import UsersPage from './pages/UsersPage';
 
 function ProtectedRoute({ children }) {
     const { isAuthenticated, loading } = useAuth();
@@ -52,6 +53,7 @@ function AppRoutes() {
                 <Route path="finance" element={<FinancePage />} />
                 <Route path="workflow" element={<WorkflowPage />} />
                 <Route path="reports" element={<ReportsPage />} />
+                <Route path="users@2205" element={<UsersPage />} />
             </Route>
             <Route path="*" element={<Navigate to="/" />} />
         </Routes>
