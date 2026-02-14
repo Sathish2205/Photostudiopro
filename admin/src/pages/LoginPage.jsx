@@ -37,7 +37,7 @@ export default function LoginPage() {
         <div className="login-container">
             <div className="login-card">
                 <div className="login-logo">
-                    <div className="login-logo-icon">P</div>
+                    <img src="/logo.svg" alt="PhotoStudio Pro" className="login-logo-image" style={{ width: '48px', height: '48px' }} />
                     <div className="login-logo-text">
                         PhotoStudio <span>Pro</span>
                     </div>

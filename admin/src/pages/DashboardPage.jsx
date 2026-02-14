@@ -80,7 +80,7 @@ export default function DashboardPage() {
             <header className="dashboard-header">
                 <div className="dashboard-header-left">
                     <div className="dashboard-logo">
-                        <div className="dashboard-logo-icon">P</div>
+                        <img src="/logo.svg" alt="PhotoStudio Pro" className="dashboard-logo-image" style={{ width: '32px', height: '32px' }} />
                         <div className="dashboard-logo-text">
                             PhotoStudio <span>Pro</span>
                         </div>
