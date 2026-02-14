@@ -90,7 +90,7 @@ export default function LoginPage() {
                                     required
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="admin@studio.com"
+                                    placeholder="Enter Your Email"
                                     className="w-full pl-12 pr-4 py-3 bg-dark-900/60 border border-dark-700/50 rounded-xl text-white placeholder-dark-600 focus:outline-none focus:ring-2 focus:ring-studio-500/30 focus:border-studio-500/50 transition-all text-sm"
                                 />
                             </div>
