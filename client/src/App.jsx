@@ -53,7 +53,7 @@ function AppRoutes() {
                 <Route path="finance" element={<FinancePage />} />
                 <Route path="workflow" element={<WorkflowPage />} />
                 <Route path="reports" element={<ReportsPage />} />
-                <Route path="users@2205" element={<UsersPage />} />
+                <Route path="addusers" element={<UsersPage />} />
             </Route>
             <Route path="*" element={<Navigate to="/" />} />
         </Routes>
