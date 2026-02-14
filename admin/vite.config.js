@@ -6,7 +6,11 @@ export default defineConfig({
     server: {
         port: 3001,
         proxy: {
-            '/api': 'http://localhost:5000',
+            '/api': {
+                target: 'https://photostudiopro.onrender.com',
+                changeOrigin: true,
+                secure: true,
+            },
         },
     },
 })

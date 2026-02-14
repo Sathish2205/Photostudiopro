@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     Users, UserPlus, Shield, LogOut, KeyRound,
-    Crown, User as UserIcon, X, Eye, EyeOff, RefreshCw
+    Crown, User as UserIcon, X, Eye, EyeOff, RefreshCw, Trash2
 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 import api from '../api';
@@ -34,6 +34,20 @@ export default function DashboardPage() {
         localStorage.removeItem('admin_token');
         localStorage.removeItem('admin_user');
         navigate('/login', { replace: true });
+    };
+
+    const handleDeleteUser = async (userId, userName) => {
+        if (!window.confirm(`Are you sure you want to delete user "${userName}"? This action cannot be undone.`)) {
+            return;
+        }
+
+        try {
+            await api.delete(`/auth/users/${userId}`);
+            toast.success('User deleted successfully');
+            fetchUsers();
+        } catch (err) {
+            toast.error(err.response?.data?.message || 'Failed to delete user');
+        }
     };
 
     const adminCount = users.filter(u => u.role === 'admin').length;
@@ -182,6 +196,16 @@ export default function DashboardPage() {
                                                         <KeyRound size={13} />
                                                         Reset Password
                                                     </button>
+                                                    {user._id !== adminUser._id && (
+                                                        <button
+                                                            className="btn btn-ghost btn-sm btn-danger-hover"
+                                                            onClick={() => handleDeleteUser(user._id, user.name)}
+                                                            title="Delete user"
+                                                            style={{ color: 'var(--danger)', marginLeft: '8px' }}
+                                                        >
+                                                            <Trash2 size={13} />
+                                                        </button>
+                                                    )}
                                                 </div>
                                             </td>
                                         </tr>
