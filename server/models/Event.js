@@ -6,7 +6,7 @@ const eventSchema = new mongoose.Schema({
     eventType: {
         type: String,
         required: true,
-        enum: ['Wedding', 'Birthday', 'Corporate', 'Outdoor Shoot', 'Portrait', 'Product', 'Other'],
+        enum: ['Wedding', 'Puberty', 'Baby Shower', 'Birthday', 'Corporate', 'Outdoor Shoot', 'Portrait', 'Product', 'Other'],
     },
     date: { type: Date, required: true },
     endDate: { type: Date },
