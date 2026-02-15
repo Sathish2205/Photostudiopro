@@ -1,6 +1,7 @@
 const express = require('express');
 const Event = require('../models/Event');
 const auth = require('../middleware/auth');
+const Payment = require('../models/Payment');
 
 const router = express.Router();
 router.use(auth);
@@ -80,6 +81,25 @@ router.post('/', async (req, res) => {
     try {
         const eventData = { ...req.body, user: req.user.id };
         const event = await Event.create(eventData);
+
+        // Create a Payment record if advance is paid
+        const advanceAmount = Number(event.advancePaid) || 0;
+        if (advanceAmount > 0) {
+            try {
+                await Payment.create({
+                    user: req.user.id,
+                    event: event._id,
+                    client: event.client,
+                    amount: advanceAmount,
+                    method: req.body.advanceMethod || 'Cash',
+                    date: new Date(),
+                    notes: 'Advance payment on booking',
+                });
+            } catch (payErr) {
+                console.error('Failed to create advance payment record:', payErr.message);
+            }
+        }
+
         const populated = await event.populate('client', 'name phone email');
         res.status(201).json(populated);
     } catch (error) {

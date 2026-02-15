@@ -5,7 +5,11 @@ const expenseSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
+<<<<<<< HEAD
         enum: ['Equipment', 'Travel', 'Editing', 'Staff Payment', 'Rent','Print', 'Marketing', 'Other'],
+=======
+        enum: ['Equipment', 'Travel', 'Editing', 'Staff Payment', 'Rent', 'Print', 'Marketing', 'Other'],
+>>>>>>> 41ecd30 (Fix Print expense category issue)
     },
     amount: { type: Number, required: true },
     date: { type: Date, default: Date.now },
