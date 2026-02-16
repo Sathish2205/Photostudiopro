@@ -62,12 +62,14 @@ const router = createBrowserRouter([
 // New imports for Auth and Toast
 import { AuthProvider } from './context/AuthContext';
 import { Toaster } from 'react-hot-toast';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <AuthProvider>
             <Toaster position="top-right" />
             <RouterProvider router={router} />
+            <SpeedInsights />
         </AuthProvider>
     </React.StrictMode>,
 );
