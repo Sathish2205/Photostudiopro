@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import AppLayout from './components/AppLayout';
 import LoginPage from './pages/LoginPage';
@@ -75,6 +76,7 @@ export default function App() {
                         },
                     }}
                 />
+                <SpeedInsights />
             </AuthProvider>
         </BrowserRouter>
     );
